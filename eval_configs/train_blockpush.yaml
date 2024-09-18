@@ -1,0 +1,74 @@
+defaults:
+  - env_vars: env_vars
+  - encoder: blockpush_dynamo
+  - _self_
+
+seed: 42
+window_size: 3
+goal_window_size: 3
+eval_window_size: 3
+batch_size: 64
+epochs: 300
+eval_freq: 10
+eval_on_env_freq: 100
+num_env_evals: 100
+num_final_evals: 100
+num_final_eval_per_goal: 1
+action_window_size: 1
+
+goal_dim: 0
+train_fraction: 0.9
+
+
+wandb:
+  project: dynamo-repro
+  entity: ${env_vars.wandb_entity}
+
+device: cuda
+optim:
+  lr: 1e-4
+  weight_decay: 0.0
+  betas: [0.9, 0.999]
+
+env:
+  gym:
+    _target_: envs.block_pushing.block_pushing_multimodal.BlockPushMultimodalMultiview
+    id: blockpush
+  goal_dim: ${goal_dim}
+  act_dim: 2
+  views: 2
+
+dataset:
+  _target_: datasets.block_pushing.PushMultiviewTrajectoryDataset
+  data_directory: ${env_vars.datasets.block_push}
+
+data:
+  window_size: ${window_size}
+  action_window_size: ${action_window_size}
+  vqbet_get_future_action_chunk: true
+  goal_conditional: future
+  future_seq_len: ${goal_window_size}
+  min_future_sep: ${action_window_size}
+
+save_every: 100
+save_path: "${env_vars.save_path}/checkpoints/${env.gym.id}/${now:%Y-%m-%d}/${now:%H-%M-%S}"
+
+model:
+  _target_: models.vq_behavior_transformer.bet.BehaviorTransformer
+  obs_dim: ${encoder.output_dim}
+  act_dim: ${env.act_dim}
+  goal_dim: ${env.goal_dim}
+  views: ${env.views}
+  vqvae_latent_dim: 512
+  vqvae_n_embed: 16
+  vqvae_groups: 2
+  vqvae_fit_steps: 1614
+  vqvae_iters: 300
+  n_layer: 6
+  n_head: 6
+  n_embd: 120
+  vqvae_batch_size: 1024
+  act_scale: 1
+  obs_window_size: ${window_size}
+  act_window_size: ${action_window_size}
+  offset_loss_multiplier: 100

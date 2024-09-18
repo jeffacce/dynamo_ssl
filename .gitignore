@@ -1,0 +1,15 @@
+.ipynb_checkpoints
+.DS_Store
+*.ipynb
+notebooks
+*.pkl
+*.pyc
+.vscode
+upload/config.yaml
+*.log
+teleop/states_records
+exp_local
+__pycache__
+outputs
+checkpoints
+wandb

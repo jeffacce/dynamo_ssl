@@ -1,0 +1,10 @@
+_target_: models.encoder.multiview_stack.MultiviewStack
+
+encoders:
+  - _target_: torch.load
+    f: SNAPSHOT_PATH  # set the path to the encoder snapshot here
+normalizations:
+  - - [0, 0, 0]
+    - [1, 1, 1]
+
+output_dim: 512
