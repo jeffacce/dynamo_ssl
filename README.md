@@ -1,5 +1,5 @@
 # **DynaMo**: In-Domain Dynamics Pretraining for Visuo-Motor Control
-[[Paper]]() [[Project Website]](https://dynamo-ssl.github.io/)
+[[Paper]](https://arxiv.org/abs/2409.12192) [[Project Website]](https://dynamo-ssl.github.io/)
 
 [Zichen Jeff Cui](https://jeffcui.com/), [Hengkai Pan](https://www.ri.cmu.edu/ri-people/hengkai-pan/), [Aadhithya Iyer](https://aadhithya14.github.io/), [Siddhant Haldar](https://siddhanthaldar.github.io/) and [Lerrel Pinto](https://www.lerrelpinto.com/), New York University
 
