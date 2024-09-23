@@ -125,7 +125,7 @@ See below for detailed steps for each environment.
   - `configs/projector/inverse_dynamics_your_dataset.yaml`
     - We find that setting the inverse dynamics `output_dim` to approximately the underlying state dimension usually works well.
       - For sim environments, this is the state-based observation dimension.
-      - For real environments, e.g. a 7DoF robot arm manipulating a rigid object (6D), this would be ~16 dimensions.
+      - For real environments, e.g. a 7DoF robot arm + gripper (1D) manipulating a rigid object (6D), this would be ~16 dimensions.
 
 - Add linear probes for training diagnostics:
   - `workspaces/your_workspace.py`
