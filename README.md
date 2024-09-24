@@ -1,5 +1,5 @@
 # **DynaMo**: In-Domain Dynamics Pretraining for Visuo-Motor Control
-[[Paper]](https://arxiv.org/abs/2409.12192) [[Project Website]](https://dynamo-ssl.github.io/)
+[[Paper]](https://arxiv.org/abs/2409.12192) [[Project Website]](https://dynamo-ssl.github.io/) [[Data]](https://osf.io/kxehw/)
 
 [Zichen Jeff Cui](https://jeffcui.com/), [Hengkai Pan](https://www.ri.cmu.edu/ri-people/hengkai-pan/), [Aadhithya Iyer](https://aadhithya14.github.io/), [Siddhant Haldar](https://siddhanthaldar.github.io/) and [Lerrel Pinto](https://www.lerrelpinto.com/), New York University
 
@@ -27,8 +27,8 @@ The following assumes our current working directory is the root directory of thi
   ```
 
 ### Getting the training datasets
-Datasets used for training will be uploaded soon.
-- Download and unzip the datasets.
+[Get the dataset here](https://osf.io/kxehw/).
+- Download all files in the `datasets` directory and unzip.
 - In `./configs/env_vars/env_vars.yaml`, set `dataset_root` to the unzipped parent directory containing all datasets.
 - In `./eval_configs/env_vars/env_vars.yaml`, set `dataset_root` to the unzipped parent directory containing all datasets.
 - In `./eval_configs/env_vars/env_vars.yaml`, set `save_path` to where you want to save the rollout results (e.g. root directory of this repo).
