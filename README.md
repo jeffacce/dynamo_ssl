@@ -28,6 +28,7 @@ The following assumes our current working directory is the root directory of thi
 
 ### Getting the training datasets
 [Get the dataset here](https://osf.io/kxehw/).
+
 (Updated Sep 29: sim kitchen dataset now supports lazy loading: set `prefetch=False` in the sim kitchen configs. If you encounter errors, try downloading the latest dataset zips from the link above.)
 - Download all files in the `datasets` directory and unzip.
 - In `./configs/env_vars/env_vars.yaml`, set `dataset_root` to the unzipped parent directory containing all datasets.
