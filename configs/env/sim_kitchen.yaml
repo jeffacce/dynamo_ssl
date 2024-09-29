@@ -8,3 +8,4 @@ dataset:
   _target_: datasets.sim_kitchen.SimKitchenTrajectoryDataset
   data_directory: ${env_vars.datasets.sim_kitchen}
   onehot_goals: False
+  prefetch: True
